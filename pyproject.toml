@@ -2,7 +2,7 @@
 name = "medusa"
 version = "0.1.0"
 description = "🪼 Medusa is a compilation of several multipurpose hacking tools"
-authors = ["Marcelo Machado <mjoelmachadojr@gmail.com>"]
+authors = ["marques <uniqueduckinbox@duck.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
