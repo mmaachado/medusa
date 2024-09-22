@@ -6,8 +6,29 @@ authors = ["marques <uniqueduckinbox@duck.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.10.5"
+python = "3.12.5"
+colorama = "^0.4.6"
 
+
+[tool.poetry.group.dev.dependencies]
+taskipy = "^1.13.0"
+ruff = "^0.6.7"
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+preview = true
+select = ['I', 'F', 'E', 'W', 'PL']
+
+[tool.ruff.format]
+preview = true
+quote-style = 'single'
+
+[tool.taskipy.tasks]
+lint = 'ruff check .; ruff check . --diff'
+format = 'ruff check . --fix; ruff format .'
+run = 'python medusa/medusa.py'
 
 [build-system]
 requires = ["poetry-core"]
