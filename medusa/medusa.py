@@ -64,18 +64,27 @@ parser.add_argument('-v', '--verbose', action='store_true', help='increase outpu
 parser.add_argument('-c', '--concurrency', type=int, default=10, help='maximum number of concurrent requests.')
 
 sync_group.add_argument('-S', '--sync', action='store_true', help='synchronize the repository with the master branch.')
+sync_group.add_argument('-y', '--refresh', action='store_true', help='refresh all dependencies according to `pyproject.toml` or `requirements.txt`')
+sync_group.add_argument('-u', '--upgrade', action='store_true', help='upgrade all dependencies to the latest release and locks to `pyproject.toml` or freeze to `requirements.txt`')
 
 args = parser.parse_args()
 
 if args.sync:
-    print(Fore.CYAN + 'synchronising package. . .')
+    print(Fore.YELLOW + '[!] synchronising package. . .')
     commands('git pull')
-    print(Fore.GREEN + 'package synchronized with master!')
+    print(Fore.GREEN + '[*] package synchronized with master!\n')
 
-if args.p:
-    # TODO - call port scanner function in /scripts/port_scanner.py
-    ...
+if args.refresh:
+    print(Fore.YELLOW + '[!] refreshing dependencies. . .')
+    try:
+        commands('poetry install --sync')
+    except:
+        commands('pip install -r requirements.txt')
 
-if args.s:
-    # TODO - call subdomain scanner function in /scripts/subdomain_scanner.py
-    ...
+if args.upgrade:
+    print(Fore.YELLOW + '\n[!] upgrading dependencies. . .')
+    try:
+        commands('poetry update')
+    except:
+        commands('pip-review --auto')
+        commands('pip freeze > requirements.txt')
