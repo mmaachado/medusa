@@ -29,7 +29,7 @@
 import socket
 import os
 from colorama import Fore
-from medusa.config.utils import linux_socket_status
+from config.utils import linux_socket_status
 
 linux_status: dict = linux_socket_status()
 

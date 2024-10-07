@@ -31,8 +31,8 @@ from colorama import Fore
 import argparse
 import subprocess
 
-from medusa.scripts.port_scanning import scan
-from medusa.config.utils import progress_bar
+from scripts.port_scanning import scan
+from config.utils import progress_bar
 
 version: float = 0.1
 
