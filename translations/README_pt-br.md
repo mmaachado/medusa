@@ -1,23 +1,23 @@
 ![](assets/header.jpg)
 
-**🌎 README disponível em outros idiomas:  [🇬🇧](.github/README.md)**
+**🌎 README disponível em outros idiomas: [🇬🇧](.github/README.md)**
 
-Medusa is a compilation of several multipurpose hacking tools. Created to help security professionals in scans and information gathering during Bug Bounty Programs.
+Medusa é uma compilação de várias ferramentas multipropósito para hacking. Criada visando auxiliar profissionais de segurança ao realizar scans e coleta de informações durante programas de Bug Bounty.
 
 ## 🌟 features
 
-- Scanners all the way possible
-- Brute force directories
-- Full CLI
+- Scanners em todos os lugares
+- Brute force nos diretórios
+- Inteiramente CLI
 - Multithread
 
-## 📲 installation
+## 📲 instalação
 
 ```bash
 git clone https://github.com/mmaachado/medusa.git
 ```
 
-> 📣 **clone the repo**
+> 📣 **clone o repositório**
 
 <br/>
 
@@ -25,15 +25,15 @@ git clone https://github.com/mmaachado/medusa.git
 cd medusa/
 ```
 
-> 📣 **change to Medusa directory**
+> 📣 **altere para o diretório da Medusa**
 
-### 🗂 venv
+### 🗂 criando o ambiente com venv
 
 ```cmd
 python -m venv env
 ```
 
-> 📣 **create a venv**
+> 📣 **crie um novo ambiente virtual**
 
 <br/>
 
@@ -41,7 +41,7 @@ python -m venv env
 ./env/bin/activate
 ```
 
-> 📣 **activate the venv**
+> 📣 **ative o ambiente virtual**
 
 <br/>
 
@@ -49,30 +49,30 @@ python -m venv env
 pip install -r requirements.txt
 ```
 
-> 📣 **install project dependencies**
+> 📣 **instale as dependencias do projeto**
 
-### ✒️ poetry
+### ✒️ criando o ambiente com Poetry
 
 ```python
 poetry install
 ```
 
-> 📣 **install project dependencies**
+> 📣 **instale as dependencias do projeto**
 
 ```python
 poetry shell
 ```
 
-> 📣 **start poetry env**
+> 📣 **inicie o ambiente virtual do Poetry**
 
 <br/>
 
-## 🐍 usage
+## 🐍 uso
 
-only **1** steps needed to use:
+apenas **1** passo necessário para utilizar:
 
-1️⃣ run
+1️⃣ execute
 
 ```python
-python ./medusa.py
+python ./medusa.py -h
 ```
