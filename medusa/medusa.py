@@ -5,7 +5,7 @@
 # Author: marques <uniqueduckinbox at duck.com>
 # URL: https://github.com/mmaachado/medusa
 # Keywords: Medusa Offensive Security PenTest Red Team
-# Compatibility: python-version >= 3.12.5
+# Compatibility: python-version >= 3.10.1
 #
 # ----------------------------
 #
@@ -32,7 +32,6 @@ import argparse
 import subprocess
 
 from scripts.port_scanning import scan
-from config.utils import progress_bar
 
 version: float = 0.1
 
@@ -69,14 +68,13 @@ parser.add_argument('-T', '--threads', type=str, help='default 25', metavar='25'
 parser.add_argument('-v', '--verbose', action='store_true', help='increase output verbosity.')
 parser.add_argument('-c', '--concurrency', type=int, default=10, help='maximum number of concurrent requests.')
 parser.add_argument('-pr', '--probe', type=str, help='probe domains', metavar='dump/domains.txt')
-
+parser.add_argument('-p', '--port', nargs='+', type=int, default=[80, 21, 22, 23, 25, 443, 445, 8080, 3306, 139, 135])
 
 sync_group.add_argument('-S', '--sync', action='store_true', help='synchronize the repository with the master branch.')
 sync_group.add_argument('-y', '--refresh', action='store_true', help='refresh all dependencies according to `pyproject.toml` or `requirements.txt`')
 sync_group.add_argument('-u', '--upgrade', action='store_true', help='upgrade all dependencies to the latest release and locks to `pyproject.toml` or freeze to `requirements.txt`')
 
-passive_scanning_group.add_argument('-sub', '--subdomains', type=str, help='scan for subdomains', metavar='hostname.com')
-
+port_scanning_group.add_argument('-ps', '--port_scanning', type=str, help='scan target ports')
 
 args = parser.parse_args()
 
@@ -99,3 +97,6 @@ if args.upgrade:
     except:
         commands('pip-review --auto')
         commands('pip freeze > requirements.txt')
+
+if args.port_scanning:
+    scan(host=args.port_scanning, ports=args.port)
